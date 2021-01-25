@@ -37,3 +37,6 @@ runinterval = 1h
 [fichier puppet.conf du client]
 [main]
 server = puppet6.agro-expertise.com
+
+#####################
+puppetserver  ca sign --certname  gaev09.agro-expertise.com
