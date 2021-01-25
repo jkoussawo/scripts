@@ -1,0 +1,13 @@
+[Serveur puppet]
+rpm -Uvh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
+yum install puppetserver
+export PATH=/usr/bin:/usr/sbin:/opt/puppetlabs/bin
+sed -i 's/JAVA_ARGS.*/JAVA_ARGS="-Xms512m -Xmx512m -XX:MaxPermSize=64m"/' /etc/sysconfig/puppetserver
+ 
+ 
+puppet config print
+
+[Serveur client]
+rpm -Uvh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
+yum install -y puppet-agent
+export PATH=/usr/bin:/usr/sbin:/opt/puppetlabs/bin
