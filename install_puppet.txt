@@ -11,3 +11,29 @@ puppet config print
 rpm -Uvh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
 yum install -y puppet-agent
 export PATH=/usr/bin:/usr/sbin:/opt/puppetlabs/bin
+
+puppetserver ca list
+
+[fichier puppet.conf du serveur]
+[master]
+vardir = /opt/puppetlabs/server/data/puppetserver
+logdir = /var/log/puppetlabs/puppetserver
+rundir = /var/run/puppetlabs/puppetserver
+pidfile = /var/run/puppetlabs/puppetserver/puppetserver.pid
+codedir = /etc/puppetlabs/code
+autosign = false
+storeconfigs_backend = puppetdb
+storeconfigs = true
+reports = puppetdb
+dns_alt_names = agro-expertise.com
+
+[main]
+strict_hostname_checking = true
+autosign = false
+certname = puppet6.agro-expertise.com
+server = puppet6.agro-expertise.com
+runinterval = 1h
+
+[fichier puppet.conf du client]
+[main]
+server = puppet6.agro-expertise.com
